@@ -6,6 +6,8 @@ using namespace std;
 int main(){
     int opcion;
     ListaUser lista;
+    cargarUsurariosLista(lista);
+    
     do {
         cout<<"Administrador de Usuarios"<< endl;
         cout<<"1. Ingresar usuario"<< endl;

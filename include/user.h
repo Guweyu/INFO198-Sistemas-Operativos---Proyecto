@@ -19,3 +19,4 @@ struct ListaUser{
 void ingresarUsuario(ListaUser &lista);
 void listarUsuarios(const ListaUser &lista);
 void eliminarUsuario(ListaUser &lista);
+void cargarUsurariosLista(ListaUser &lista);

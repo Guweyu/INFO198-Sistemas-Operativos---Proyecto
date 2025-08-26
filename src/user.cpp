@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include "user.h"
 
 using namespace std;
@@ -13,9 +14,15 @@ void ingresarUsuario(ListaUser &lista){
     cin>>creaUsuario.username;
     cout<<"password: ";
     cin>>creaUsuario.password;
-    cout<<"Tipo perfil: ";
-    cin>>creaUsuario.perfil;
+    do{
+        cout<<"Tipo perfil(GENERAL O ADMIN): ";
+        cin>>creaUsuario.perfil;
+        for(char &c : creaUsuario.perfil) c = toupper(c);
+    }while(creaUsuario.perfil!="GENERAL" && creaUsuario.perfil != "ADMIN");
+    
+
     lista.usuarios.push_back(creaUsuario);
+    
     const char* ruta = getenv("USER_FILE");
     if (ruta == nullptr) {
         cerr << "Error: no se encontro la variable USER_FILE" << endl;
@@ -26,6 +33,7 @@ void ingresarUsuario(ListaUser &lista){
         archivo<<creaUsuario.id<<","<<creaUsuario.nombre<<","<<creaUsuario.username<<","<<creaUsuario.password<<","<<creaUsuario.perfil<<endl;
         archivo.close();
     }
+    cout<<"Usuario guardado exitosamente"<<endl;
 }
 
 void listarUsuarios(const ListaUser &lista){
@@ -34,4 +42,29 @@ void listarUsuarios(const ListaUser &lista){
 
 void eliminarUsuario(ListaUser &lista){
     cout<<"Se supone que inicia la funcion eliminarUsuario()"<<endl;
+}
+
+void cargarUsurariosLista(ListaUser &lista){
+    ifstream archivo("data/USUARIOS.TXT");
+    string linea;
+    int maxId=0;
+
+    while(getline(archivo, linea)){
+        Usuario temporal;
+        stringstream ss(linea);
+        string u;
+
+        getline(ss, u, ',');
+        temporal.id=stoi(u);
+        if (temporal.id>maxId){
+            maxId=temporal.id;
+        }
+        getline(ss, temporal.nombre, ',');
+        getline(ss, temporal.username, ',');
+        getline(ss, temporal.password, ',');
+        getline(ss, temporal.perfil, ',');
+
+        lista.usuarios.push_back(temporal);
+    }
+    lista.nextId=maxId + 1;
 }
