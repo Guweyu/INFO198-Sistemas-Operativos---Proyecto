@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string>
+#include <iomanip>
 #include "user.h"
 
 using namespace std;
@@ -37,7 +39,10 @@ void ingresarUsuario(ListaUser &lista){
 }
 
 void listarUsuarios(const ListaUser &lista){
-    cout<<"Se supone que inicia la funcion listarUsuario()"<<endl;
+    cout<<left<< setw(20)<<"Nombre"<<setw(20)<<"Username"<<setw(10)<<"Perfil"<<endl;
+    for(const Usuario &u : lista.usuarios){
+        cout<<left<<setw(20)<<u.nombre <<setw(20)<<u.username <<setw(10)<<u.perfil<<endl;
+    }
 }
 
 void eliminarUsuario(ListaUser &lista){
