@@ -1,4 +1,2 @@
 1,felipe,fajar,123,ADMIN
 2,sam,jarate,123,GENERAL
-4,Esperanza,kintsugi,123,GENERAL
-5,fernando,warencigarro,123,GENERAL

@@ -6,15 +6,15 @@ using namespace std;
 int main(){
     int opcion;
     ListaUser lista;
-    cargarUsurariosLista(lista);
+    cargarUsuariosLista(lista);
     
     do {
-        cout<<"Administrador de Usuarios"<< endl;
+        cout<<"--- Administrador de Usuarios ---"<< endl;
         cout<<"1. Ingresar usuario"<< endl;
         cout<<"2. Lista usuarios"<< endl;
         cout<<"3. Eliminar usuario"<< endl;
         cout<<"0. Salir"<< endl;
-        cout<<"Seleccione una opcion: ";
+        cout<<"Seleccione una opción: ";
         cin>>opcion;
         
 
@@ -29,10 +29,10 @@ int main(){
                 eliminarUsuario(lista);
                 break;
             case 0:
-                cout<<"Adios..."<<endl;
+                cout<<"Fin del programa :P"<<endl;
                 break;
             default:
-                cout<<"Opcion invalida"<< endl;
+                cout<<"Opcion inválida"<< endl;
         }
         cout<<endl;
     }while(opcion !=0);

@@ -15,8 +15,7 @@ struct ListaUser{
     int nextId =1;
 };
 
-
 void ingresarUsuario(ListaUser &lista);
 void listarUsuarios(const ListaUser &lista);
 void eliminarUsuario(ListaUser &lista);
-void cargarUsurariosLista(ListaUser &lista);
+void cargarUsuariosLista(ListaUser &lista);
