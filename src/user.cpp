@@ -10,18 +10,27 @@ using namespace std;
 void ingresarUsuario(ListaUser &lista){
     Usuario creaUsuario;
     creaUsuario.id = lista.nextId++;
+    system("clear");
     cout<<"Nombre: ";
     cin>>creaUsuario.nombre;
+    system("clear");
     cout<<"username: ";
     cin>>creaUsuario.username;
+    system("clear");
     cout<<"password: ";
     cin>>creaUsuario.password;
-    do{
-        cout<<"Tipo perfil(GENERAL O ADMIN): ";
-        cin>>creaUsuario.perfil;
-        for(char &c : creaUsuario.perfil) c = toupper(c);
-    }while(creaUsuario.perfil!="GENERAL" && creaUsuario.perfil != "ADMIN");
-
+    system("clear");
+    cout<<"Tipo perfil(GENERAL O ADMIN): ";
+    cin>>creaUsuario.perfil;
+    for(char &c : creaUsuario.perfil) c = toupper(c);
+    while (creaUsuario.perfil != "GENERAL" && creaUsuario.perfil != "ADMIN") {
+            system("clear");
+            cout <<"ERROR: Seleccione GENERAL o ADMIN solamente."<<endl;
+            cout <<"Intente otra vez: ";
+            cin>>creaUsuario.perfil;
+            for(char &c : creaUsuario.perfil) c = toupper(c);
+    }
+    system("clear");
     cout << "1) Guardar     2) Cancelar" << endl;
     char opcion;
     cin >> opcion;
@@ -48,10 +57,7 @@ void ingresarUsuario(ListaUser &lista){
 }
 
 void listarUsuarios(const ListaUser &lista){
-    /*cout<<left<< setw(5)<<"ID"<<setw(20)<<"Nombre"<<setw(10)<<"Perfil"<<endl;
-    for(const Usuario &u : lista.usuarios){
-        cout<<left<<setw(5)<<u.id <<setw(20)<<u.nombre <<setw(10)<<u.perfil<<endl;
-    }*/
+    system("clear");
     for(const Usuario &u : lista.usuarios){
         cout << "ID: " << u.id << endl;
         cout << "Nombre: " << u.nombre << endl;
@@ -62,6 +68,7 @@ void listarUsuarios(const ListaUser &lista){
 }
 
 void eliminarUsuario(ListaUser &lista){
+    system("clear");
     int id_elim;
     cout << "ID usuario a borrar: ";
     cin >> id_elim;
