@@ -3,11 +3,12 @@
 
 using namespace std; 
 
+
 int main(){
     int opcion;
     ListaUser lista;
     cargarUsuariosLista(lista);
-    
+    system("clear");
     do {
         cout<<"--- Administrador de Usuarios ---"<< endl;
         cout<<"1. Ingresar usuario"<< endl;
@@ -20,7 +21,7 @@ int main(){
 
         switch(opcion){
             case 1:
-                ingresarUsuario(lista); //FUNCION CASI LISTA UNICO PROBLEMA ES QUE EL ID SE REINICIA CADA QUE SE EJECUTA EL PROGRAMA
+                ingresarUsuario(lista);
                 break;
             case 2:
                 listarUsuarios(lista);

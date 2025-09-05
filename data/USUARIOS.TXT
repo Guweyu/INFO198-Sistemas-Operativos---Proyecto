@@ -1,2 +1,6 @@
 1,felipe,fajar,123,ADMIN
 2,sam,jarate,123,GENERAL
+4,Esperanza,Kintsugi,1234,GENERAL
+6,espe,aaaa,123,GENERAL
+7,sam,jarate,123,GENERAL
+9,hola,hola,123,GENERAL
