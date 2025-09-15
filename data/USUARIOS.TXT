@@ -1,0 +1,2 @@
+1,fajar,fajar,12345,ADMIN
+2,felipe,guweyu,123456,GENERAL
